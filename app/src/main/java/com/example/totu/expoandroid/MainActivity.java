@@ -7,37 +7,35 @@ import android.widget.Button;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
-    // on crée nos object
+    // on crée nos objets et nos variables
     private Button myButton;
     private TextView nbClick;
     private int compteur;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
         //On associe notre objet Button au bouton de l'interface graphique
         myButton = findViewById(R.id.button);
 
-        //On associe notre object TextView au textview de l'interface (Hello World!)
+        //On associe notre objet TextView au textview de l'interface (Hello World!)
         nbClick = findViewById(R.id.textView2);
-
-
     }
-    // fonction qui va calculer le nombre de clique
+    // Cette fonction va calculer le nombre de clique et afficher le résultat dans un TextView
     public void btn_tap_Click()
     {
         compteur += 1;
-        nbClick.setText(compteur);
+        nbClick.setText("Vous avez cliqué " + compteur + " fois");
     }
 
-    // fonction qui va s'activer a chaque click si on clique sur le boutton on appel la fonction
+    // La fonction onClick va s'activer à chaque click.
+    // Dans cette fonction on va rajouter une condition :
+    // si on clique sur le bouton on appelle la fonction btn_tap_Click
     public void onClick(View v)
     {
         if (v == myButton)
-        {
-            btn_tap_Click();
-        }
+        { btn_tap_Click();}
     }
 }
